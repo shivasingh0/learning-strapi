@@ -57,20 +57,25 @@
       "type": "string",
       "required": false
     },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "description": {
       "type": "text",
       "required": true
+    },
+    "thumbnale": {
+      "type": "string",
+      "required": true
+    },
+    "img_1": {
+      "type": "string"
+    },
+    "img_2": {
+      "type": "string"
+    },
+    "img_3": {
+      "type": "string"
+    },
+    "img_4": {
+      "type": "string"
     }
   }
 }

@@ -362,52 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiHotelHotel extends Schema.CollectionType {
-  collectionName: 'hotels';
-  info: {
-    singularName: 'hotel';
-    pluralName: 'hotels';
-    displayName: 'Hotel';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    address: Attribute.String & Attribute.Required;
-    city: Attribute.String & Attribute.Required;
-    price: Attribute.String & Attribute.Required;
-    mobile: Attribute.BigInteger & Attribute.Required;
-    wifi: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
-    tv: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
-    washingmachine: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    furniture: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    size: Attribute.String;
-    image: Attribute.Media & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::hotel.hotel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::hotel.hotel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -834,6 +788,88 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiHotelHotel extends Schema.CollectionType {
+  collectionName: 'hotels';
+  info: {
+    singularName: 'hotel';
+    pluralName: 'hotels';
+    displayName: 'Hotel';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    address: Attribute.String & Attribute.Required;
+    city: Attribute.String & Attribute.Required;
+    price: Attribute.String & Attribute.Required;
+    mobile: Attribute.BigInteger & Attribute.Required;
+    wifi: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    tv: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    washingmachine: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    furniture: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    size: Attribute.String;
+    description: Attribute.Text & Attribute.Required;
+    thumbnale: Attribute.String & Attribute.Required;
+    img_1: Attribute.String;
+    img_2: Attribute.String;
+    img_3: Attribute.String;
+    img_4: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hotel.hotel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hotel.hotel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSendOtpSendOtp extends Schema.CollectionType {
+  collectionName: 'send_otps';
+  info: {
+    singularName: 'send-otp';
+    pluralName: 'send-otps';
+    displayName: 'SendOTP';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    number: Attribute.Integer & Attribute.Required;
+    otp: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::send-otp.send-otp',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::send-otp.send-otp',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -844,7 +880,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::hotel.hotel': ApiHotelHotel;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -853,6 +888,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::hotel.hotel': ApiHotelHotel;
+      'api::send-otp.send-otp': ApiSendOtpSendOtp;
     }
   }
 }

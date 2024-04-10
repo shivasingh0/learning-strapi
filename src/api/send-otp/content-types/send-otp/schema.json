@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "send_otps",
+  "info": {
+    "singularName": "send-otp",
+    "pluralName": "send-otps",
+    "displayName": "SendOTP",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "number": {
+      "required": true,
+      "type": "integer"
+    },
+    "otp": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
